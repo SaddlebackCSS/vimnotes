@@ -135,14 +135,14 @@ Motions move the cursor around. Most commands can be followed by a motion to ind
 ---
 ## Macros
 
-- `q` followed by a buffer will record all following commands to the buffer (use `q` to stop recording)
-- `@` followed by a buffer will execute the contents of the buffer as commands
+- `q` followed by a register will record all following commands to the register (use `q` to stop recording)
+- `@` followed by a register will execute the contents of the register as commands
     - Prefix `@` with a count to execute the macro multiple times.
 
 
-Note that these commands use the same buffers as `p`, `y`, and `d`.
-This means that you can use `qa` to record into buffer `a`, then `"ap` to paste
-the commands entered; or use `"ayy` to yank a line into buffer `a`, then `@a`
+Note that these commands use the same registers as `p`, `y`, and `d`.
+This means that you can use `qa` to record into register `a`, then `"ap` to paste
+the commands entered; or use `"ayy` to yank a line into register `a`, then `@a`
 to execute it. This ultimately means that you can edit a macro just like any
 other text, to correct any mistakes made when recording.
 
