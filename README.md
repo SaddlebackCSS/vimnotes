@@ -167,3 +167,13 @@ other text, to correct any mistakes made when recording.
     - use `:cn` to go to the next search result
 
 
+---
+## Scrolling
+
+- `Ctrl-F` scrolls down one screen
+- `Ctrl-B` scrolls up one screen
+- `zt` places the current line at the top of the screen
+- `zb` places the current line at the bottom of the screen
+- `zz` places the current line at the middle of the screen
+    - (This is not the same as `ZZ`, which saves and quits Vim)
+
