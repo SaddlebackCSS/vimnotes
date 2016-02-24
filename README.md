@@ -64,20 +64,6 @@ For that reason, I usually use `o` to enter newlines so that each line is a
 separate command and a separate item on the undo stack.
 
 ---
-## Completion
-
-- When in Insert mode, use `Ctrl-P` to quickly enter words that appear elsewhere in the document. Use `Ctrl-P` and `Ctrl-N` to scroll through the list. Use `Ctrl-E` to cancel or `Ctrl-Y` to accept.
-- When in Insert mode, use `Ctrl-X` to enter Insert mode completion. See `:help ins-completion`. Useful subcommands:
-  - `Ctrl-X Ctrl-F`: Filename completion.
-  - `Ctrl-X Ctrl-K`: Completion from one or more dictionary files.
-  - `Ctrl-X Ctrl-K`: Completion from one or more thesaurus files.
-  - `Ctrl-X s`: If spelling is enabled, complete spelling suggestions.
-  - `Ctrl-X Ctrl-O`: Omni-complete. This allows for completion based on filetype. See `:help compl-omni-filetypes`.
-  - When the popup menu is displayed, use `Ctrl-N` and `Ctrl-P` to scroll through the list.
-  - `Ctrl-Y`: Accept completion.
-  - `Ctrl-E`: Cancel completion.
-
----
 ## Motions
 Motions move the cursor around. Most commands can be followed by a motion to indicate the affected text.
 
@@ -152,6 +138,39 @@ Motions move the cursor around. Most commands can be followed by a motion to ind
         - Also, with `y` and `d`, using a captial register letter will *append* to the register instad of overwriting it
     - Also note that the special register +g synchronizes with the system clipboard (eg `"+gp` will paste the clipboard contents; `"+gyy` will copy a line to the clipboard)
 - `x` will delete the character under the cursor
+
+---
+## Completion
+
+- When in Insert mode, use `Ctrl-P` to quickly enter words that appear elsewhere in the document. Use `Ctrl-P` and `Ctrl-N` to scroll through the list. Use `Ctrl-Y` to accept ("yes") or `Ctrl-E` to cancel ("escape" or "exit").
+- When in Insert mode, use `Ctrl-X` to enter Insert mode completion. See `:help ins-completion`. Useful subcommands:
+  - `Ctrl-X Ctrl-F`: Filename completion.
+  - `Ctrl-X Ctrl-K`: Completion from one or more dictionary files.
+  - `Ctrl-X Ctrl-T`: Completion from one or more thesaurus files.
+  - `Ctrl-X Ctrl-S` or `Ctrl-X s`: If spelling is enabled, complete spelling suggestions.
+  - `Ctrl-X Ctrl-O`: Omni-complete. This allows for completion based on filetype. See `:help compl-omni-filetypes`.
+  - When the popup menu is displayed, use `Ctrl-N` and `Ctrl-P` to scroll through the list. You can also repeat the subcommand (e.g. `Ctrl-F` for file completion) as a shortcut for `Ctrl-N`.
+  - `Ctrl-Y`: Accept completion.
+  - `Ctrl-E`: Cancel completion.
+
+---
+## Spell Checking
+
+The command `:setlocal spell spelllang=en_us` enables spell checking.
+Spell files for other languages can be placed in `~/.vim/spell` (UNIX)
+or `%HOME%\vimfiles\spell` (Windows).
+
+Use the following commands with the spell checker:
+
+- `]s`: go to next misspelled word
+- `[s`: go to previous misspelled word
+- `zg`: mark a word as "good" (i.e. not misspelled). This will be saved in your spell file.
+- `zG`: mark a word as good, but don't add it to the spell file. This will be lost when you exit Vim.
+- `zw`: mark a word as misspelled. This will be saved in your spell file.
+- `zW`: mark a word as misspelled, but don't add it to the spell file. This will be lost when you exit Vim.
+- `zug`/`zuG`/`zuw`/`zuW`: undo `zg`, `zG`, `zw`, or `zW`
+- `z=` suggest correctly spelled words for the word under the cursor.
+- In Insert mode, use `Ctrl-X Ctrl-S` or `Ctrl-X s` to find spelling suggestions.
 
 ---
 ## Macros

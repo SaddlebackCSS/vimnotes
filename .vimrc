@@ -90,13 +90,14 @@ if has("autocmd")
   autocmd Filetype html setlocal shiftwidth=2
   autocmd Filetype xml setlocal shiftwidth=2
 
-  " For Markdown and Liquid files, enable spell checking
+  " For Markdown, HTML, and Liquid files, enable spell checking
   autocmd Filetype markdown setlocal spell spelllang=en_us
+  autocmd Filetype html setlocal spell spelllang=en_us
   autocmd Filetype liquid setlocal spell spelllang=en_us
 endif
 
 " Enable syntax highlighting
 syntax on
-" Enable loading filetype and indentation info from plugins
+" Enable filetype detection, plugins, and automatic indentation
 filetype plugin indent on
 
