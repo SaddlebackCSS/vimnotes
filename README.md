@@ -1,4 +1,12 @@
 # Vim Notes
+
+Vim can be downloaded from [vim.org](http://www.vim.org/).
+The Windows installer is a self-extracting archive which does not require
+administrator privileges to run (as long as you have permission to write to
+the selected install folder).
+
+---
+
 Vim is **modal**
 
 - **Normal** mode maps each key to an editing command
@@ -11,6 +19,9 @@ Vim is **modal**
       GVim only understands vim commands.
 - EVim is GVim in "easy mode".
 - Easy mode can also be run using `vim -y` in the terminal
+- Easy mode can also be activated using the Vim command `:set insertmode`.
+  This also works in the command-line Vim.
+  (see `:help evim-keys` for the full list of options that EVim uses).
 - There are also "View" variants that open the file read-only
 
 ---
@@ -26,10 +37,6 @@ Vim is **modal**
 - Use `:q` to quit vim
 - Use `:wq` or `ZZ` to save and close
 - Use `:help` to read Vim's help
-
----
-
-- When in Insert mode, use `Ctrl-P` to quickly enter words that appear elsewhere in the document
 
 ---
 ## Undo/Redo
@@ -55,6 +62,20 @@ Note that *everything* from when Insert mode is first entered to pressing `ESC`
 is treated as *one* command, and therefore *one* item on the undo stack.
 For that reason, I usually use `o` to enter newlines so that each line is a
 separate command and a separate item on the undo stack.
+
+---
+## Completion
+
+- When in Insert mode, use `Ctrl-P` to quickly enter words that appear elsewhere in the document. Use `Ctrl-P` and `Ctrl-N` to scroll through the list. Use `Ctrl-E` to cancel or `Ctrl-Y` to accept.
+- When in Insert mode, use `Ctrl-X` to enter Insert mode completion. See `:help ins-completion`. Useful subcommands:
+  - `Ctrl-X Ctrl-F`: Filename completion.
+  - `Ctrl-X Ctrl-K`: Completion from one or more dictionary files.
+  - `Ctrl-X Ctrl-K`: Completion from one or more thesaurus files.
+  - `Ctrl-X s`: If spelling is enabled, complete spelling suggestions.
+  - `Ctrl-X Ctrl-O`: Omni-complete. This allows for completion based on filetype. See `:help compl-omni-filetypes`.
+  - When the popup menu is displayed, use `Ctrl-N` and `Ctrl-P` to scroll through the list.
+  - `Ctrl-Y`: Accept completion.
+  - `Ctrl-E`: Cancel completion.
 
 ---
 ## Motions
@@ -176,4 +197,57 @@ other text, to correct any mistakes made when recording.
 - `zb` places the current line at the bottom of the screen
 - `zz` places the current line at the middle of the screen
     - (This is not the same as `ZZ`, which saves and quits Vim)
+
+
+---
+## Runtime Configuration
+
+When Vim runs, it reads and executes an "rc" file.
+This file is used to store user settings.
+By default, this is a file called `.vimrc` or `_vimrc` in your `$HOME` folder.
+(Run `:help .vimrc` for more info on where Vim searches for this file).
+
+There are many settings which can be overridden in the rc file,
+including `:set` options and key bindings.
+
+When running GVim or EVim, they will also load the `.gvimrc`
+(after loading the `.vimrc`).
+This can be used for GUI-specific startup commands (e.g. disabling the mouse).
+
+I have included excerpts of my `.vimrc` and `.gvimrc` files for reference.
+
+---
+## Filetypes
+
+Vim can perform syntax coloring/highlighting for various file types.
+To enable this, run the command `:syntax enable`.
+This will keep your current color settings, which can be changed with `:highlight`.
+If you want Vim to overrule your color settings, use `:syntax on`.
+It may be useful to have one of these in your `.vimrc`.
+
+The `filetype` option allows Vim to customize settings for various types of files.
+Use `:filetype on` to enable filetype detection.
+With filetype detection enabled, you can register autocommands to execute when
+certain types of files are loaded.
+This is done using `:autocommand` (and is often done in your `.vimrc`).
+
+Vim can use different automatic indentation settings based on the file type.
+Use `:filetype indent on` to enable this.
+
+Vim filetype plugins are used to store settings and key bindings for specific
+file types.
+To enable loading plugins, use `:filetype plugin on`.
+
+You can combine filetype detection, plugin settings, and indentation settings
+using `:filetype plugin indent on`.
+
+You can install new syntax, filetype, and indentation settings in the folder
+`~/.vim/` (UNIX) or `%HOME%\vimfiles` (Windows).
+
+Note that filetype plugins will override settings in your `.vimrc`.
+You can over-override your plugins with plugins stored in
+`~/.vim/after/` (UNIX) or `%HOME%\vimfiles\after` (Windows).
+
+The `:filetype detect` command will cause Vim to detect the filetype of the
+current file (if you opened an empty file and started writing).
 
