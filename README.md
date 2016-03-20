@@ -5,6 +5,12 @@ The Windows installer is a self-extracting archive which does not require
 administrator privileges to run (as long as you have permission to write to
 the selected install folder).
 
+You can find help here:
+
+- [Vim Documentation](http://www.vim.org/docs.php)
+- [Vi StackExchange](http://vi.stackexchange.com/)
+- [Vim Tips Wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki)
+
 ---
 ## Contents
 
