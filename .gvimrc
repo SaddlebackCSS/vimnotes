@@ -13,7 +13,12 @@ highlight Normal guibg=Black guifg=White
 
 " Set the number of lines to display.
 " Useful for tall displays.
-set lines=48
+" Also maximizes the window when run in diff mode
+if &diff
+    set lines=999 columns=999
+else
+    set lines=48
+endif
 
 " The visual bell causes the screen to flash on errors.
 " This disables it.
