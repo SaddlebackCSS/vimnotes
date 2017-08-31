@@ -39,6 +39,8 @@ set hidden
 set background=dark
 " Highlights the 80th column in red.
 set colorcolumn=80
+" Fix the backspace key to delete over indents, line breaks, and existing text
+set backspace=indent,eol,start
 
 " Creates a new command ':W' which saves the current file and runs 'make'.
 " If you have a Makefile in the current directory, this will cause the default
