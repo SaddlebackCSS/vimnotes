@@ -55,6 +55,15 @@ map <F1> <nop>
 " imap is for Insert mode
 imap <F1> <nop>
 
+" Whenever you type an open parenthesis, this remap will insert the closing
+" parenthesis and place the cursor between them.
+inoremap ( ()<Left>
+" Whenever you type an open brace followed by a new line, this remap will
+" insert the closing brace on a new line and place the cursor on a new line
+" between them.
+" This remap will use auto-indentation (if enabled).
+inoremap {<CR> {}<Left><CR><Up><End><CR>
+
 " set background and text colors
 "highlight Normal ctermbg=White ctermfg=Black
 
