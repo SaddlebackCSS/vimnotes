@@ -157,7 +157,9 @@ Motions move the cursor around. Most commands can be followed by a motion to ind
 For nearly all editing commands, repeating the command character operates on the line under the cursor (e.g. `dd` deletes the line, `yy` copies the line, etc.).
 
 - `d` followed by a motion will delete characters (placing them in the default register)
+- `D` will delete characters from the current cursor position to the end of the line (shortcut for `d$`)
 - `y` followed by a motion will copy (yank) characters into the default register
+- `Y` will copy (yank) the current line into the default register (shortcut for `yy`)
 - `p` will put the contents of the default register after the cursor
 - `P` will put the contents of the default register before the cursor
     - The above commands can be prefixed with `"` followed by a register letter to operate on a specific register (e.g. `"add` will delete the line and place it in register a; `"ap` will then paste this register)
@@ -173,9 +175,10 @@ For nearly all editing commands, repeating the command character operates on the
 
 - use `:help` to view Vim's help
 - use `:help <topic>` to jump to a topic
-- You may notice some help text that is highlighted. These are [tags](#tags). Position the cursor on the text and press `CTRL-]` to jump to the tagged topic. Use `CTRL-O` to return to the previous topic.
+- You may notice some help text that is highlighted. These are [tags](#tags). Position the cursor on the text and press `CTRL-]` to jump to the tagged topic. Use `CTRL-T` to return to the previous topic.
 - use `:helpgrep <text>` to search for `<text>` in the help
     - use `:cn` to go to the next search result
+        - You can use `@:` to repeat the `:cn` command
 
 
 ---
