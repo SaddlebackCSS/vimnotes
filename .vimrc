@@ -67,6 +67,11 @@ inoremap () ()
 " between them.
 " This remap will use auto-indentation (if enabled).
 inoremap {<CR> {}<Left><CR><Up><End><CR>
+" This remap will correctly insert quotes. When you type a quote, if the
+" character after the cursor is a quote, then the cursor is just moved
+" right, otherwise, two quotes are inserted and the cursor is moved left.
+inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
+" Note that the above remaps may break the undo stack
 
 " set background and text colors
 "highlight Normal ctermbg=White ctermfg=Black
