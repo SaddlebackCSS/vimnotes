@@ -58,6 +58,10 @@ imap <F1> <nop>
 " Whenever you type an open parenthesis, this remap will insert the closing
 " parenthesis and place the cursor between them.
 inoremap ( ()<Left>
+" With the above remap, if you type the closing parenthesis then you will
+" have two closing parentheses.
+" This will prevent the closing parenthesis duplication.
+inoremap () ()
 " Whenever you type an open brace followed by a new line, this remap will
 " insert the closing brace on a new line and place the cursor on a new line
 " between them.
